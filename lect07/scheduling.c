@@ -26,5 +26,19 @@ round-robin scheduling수행
  2. 0되면 종료or I/O(랜덤)
  3. I/O시 부모프로세스에세 I/O요청 시그널 보내기
  */
+typedef enum State{
+	STATE_NEW,
+	STATE_READY,
+	STATE_RUNNING,
+	STATE_SLEEP,
+	STATE_TERMINATED
+}
 
+typedef struct PCB{
+	int PID;
+	int time;
+	State state;
+}
+
+int main(){
 
