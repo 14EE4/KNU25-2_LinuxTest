@@ -16,7 +16,7 @@ round-robin scheduling수행
 1. 실행중 프로세스 타임퀀텀 -1
 2. 타임퀀텀 0 -> 다음 프로세스로 변경
 3. 0이 아니면 계속
-4. I/O요청시 랜덤으로 할당(1~5) -> sleep큐 -> 만료시 ready큐
+4. I/O요청시 I/O대기시간 랜덤으로 할당(1~5) -> sleep큐 -> 만료시 ready큐
 5. 모든 프로세스의 타임퀀텀 0 -> 전체 프로세스의 타임퀀텀 초기화
 */
 
@@ -30,7 +30,7 @@ round-robin scheduling수행
  3. I/O시 부모프로세스에세 I/O요청 시그널 보내기
  */
 typedef enum State{
-	STATE_NEW,
+	
 	STATE_READY,
 	STATE_RUNNING,
 	STATE_SLEEP,
@@ -38,11 +38,34 @@ typedef enum State{
 }
 
 typedef struct PCB{
-	int PID;
-	int time;
+	pid_t pid;
+	int total_time;
+	int remain_time;
+	int remain_sleep;
+
 	State state;
 }
 
-int main(){
-	PDB pdb_table[10];
+int ready_queue[PROCESS_NUM*2];
+int rq_head=0;
+int rq_tail=0;
 
+int cur_process_idx=-1;//현재 실행중인 프로세스
+int done_process_cnt=0;//끝난 프로세스 수
+
+volatile sig_atomic_t sig_flag=0;
+
+//큐 함수
+void enqueue(int p_idx){
+	ready_queue[rq_tail++]=p_idx;
+}
+int dequeue(){
+	if (rq_head==rq_tail)return -1;
+	return ready_queue[rq_head++];
+}
+
+int main(){
+	PCB pdb_table[PROCESS_NUM];
+	
+
+	
