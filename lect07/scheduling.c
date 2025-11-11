@@ -3,6 +3,9 @@
 #include <unistd.h>
 #include <signal.h>
 
+#define PROCESS_NUM 10
+#define QUANTUM 3
+
 /*
 부모 프로세스(커널)
 자식 프로세스 10개 생성
@@ -31,7 +34,7 @@ typedef enum State{
 	STATE_READY,
 	STATE_RUNNING,
 	STATE_SLEEP,
-	STATE_TERMINATED
+	STATE_DONE
 }
 
 typedef struct PCB{
@@ -41,4 +44,5 @@ typedef struct PCB{
 }
 
 int main(){
+	PDB pdb_table[10];
 
