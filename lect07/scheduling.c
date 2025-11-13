@@ -44,9 +44,10 @@ typedef enum State{
 
 typedef struct PCB{
 	pid_t pid;
-	
-	int remain_quantum;//남은 타임퀀텀
-	int remain_sleep;//남은 IO시간
+
+
+	int remain_quantum;//남은 타임퀀텀(1~3)
+	int remain_sleep;//남은 I/O시간
 
 	State state;
 } PCB; 
@@ -79,7 +80,7 @@ void enqueue(int p_idx){
 	ready_queue[rq_tail++]=p_idx;
 }
 int dequeue(){
-	if (rq_head==rq_tail)return -1;
+	if (rq_head==rq_tail) return -1;
 	return ready_queue[rq_head++];
 }
 
@@ -88,18 +89,50 @@ void sig_alm_handler(int sig){
 	alm_tick=1;
 }
 void sig_io_handler(int sig, siginfo_t *info, void *context){
-	io_request=info->si_pid//io요청한 자식의 pid
+	io_request=info->si_pid;//io요청한 자식의 pid
 }
 void sig_terminated_handler(int sig){
 	is_terminated=1;
 }
-//child ''
-volatile sig_atomic_t child_burst_left=0;
+//child process
+volatile sig_atomic_t child_burst_left=0;//fork()로 각 프로세스의 남은 버스트 시간 저장됨
 
 void child_sig_handler(int sig){
-	
+	if (sig==SIGUSR1){
+		//새로 시작했거나 i/o에서 복귀했다면 cpu버스트 랜덤 할당
+		if (child_burst_left==0){
+			child_burst_left=(rand()%10)+1;			
+			printf("[child %d] (new work)burst remain %d",getpid(),child_burst_left);
 
-int main(){
-	
+		}
+		
+		printf("[child %d] (running)burst remain %d",getpid(),--child_burst_left);
+		if (child_burst_left==0){
+			//종료하거나 i/o request
+			if (rand()%2==0){
+				printf("[child %d] end",getpid());
+				kill(getppid(),SIGCHLD);
+				exit(0);
+			}else{
+				
+				printf("[child %d] io request",getpid());
+				
+				kill(getppid(),SIGUSR2);
+			}
+		}
+	}
+}
 
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
