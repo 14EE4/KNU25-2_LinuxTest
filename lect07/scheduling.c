@@ -52,7 +52,7 @@ typedef struct PCB{
 	State state;
 } PCB; 
 
-PCB pdb_table[PROCESS_NUM];
+PCB pcb_table[PROCESS_NUM];
 
 int ready_queue[PROCESS_NUM*2];
 int rq_head=0;
@@ -86,12 +86,15 @@ int dequeue(){
 
 //parant signal handler
 void sig_alm_handler(int sig){
+	//SIGALRM
 	alm_tick=1;
 }
 void sig_io_handler(int sig, siginfo_t *info, void *context){
+	//SIGUSR2
 	io_request=info->si_pid;//io요청한 자식의 pid
 }
 void sig_terminated_handler(int sig){
+	//SIGCHLD
 	is_terminated=1;
 }
 //child process
@@ -102,28 +105,54 @@ void child_sig_handler(int sig){
 		//새로 시작했거나 i/o에서 복귀했다면 cpu버스트 랜덤 할당
 		if (child_burst_left==0){
 			child_burst_left=(rand()%10)+1;			
-			printf("[child %d] (new work)burst remain %d",getpid(),child_burst_left);
+			printf("[child %d] (new work)burst remain %d\n",getpid(),child_burst_left);
 
 		}
 		
-		printf("[child %d] (running)burst remain %d",getpid(),--child_burst_left);
+		printf("[child %d] (running)burst remain %d\n",getpid(),--child_burst_left);
 		if (child_burst_left==0){
 			//종료하거나 i/o request
 			if (rand()%2==0){
-				printf("[child %d] end",getpid());
+				printf("[child %d] end\n",getpid());
 				kill(getppid(),SIGCHLD);
 				exit(0);
 			}else{
 				
-				printf("[child %d] io request",getpid());
+				printf("[child %d] io request\n",getpid());
 				
 				kill(getppid(),SIGUSR2);
 			}
 		}
 	}
 }
+void child_main(){
+	srand(time(NULL)^getpid());
 
+	signal(SIGUSR1, child_sig_handler);//시그널 핸들러 설정
+	while(1){
+		pause();
+	}
+}
 
+//parent
+void scheduler(){
+	if (cur_process_idx!=-1 && pcb_table[cur_process_idx].state==STATE_RUNNING){
+		printf("[sched] process %d -> ready\n",cur_process_idx);
+		pcb_table[cur_process_idx].state=STATE_READY;
+		enqueue(cur_process_idx);
+		
+		cur_process_idx=dequeue();
+
+		if (cur_process_idx==-1){
+			printf("[sched] IDLE\n");
+		}
+		else{
+			PCB *pcb=&pcb_table[cur_process_idx];
+			pcb->state=STATE_RUNNING;
+
+			pcb->remain_quantum=QUANTUM;
+			printf("[sched] alloc time quantum :%d %d\n",cur_process_idx,pcb->pid);
+			
 
 
 
