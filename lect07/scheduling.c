@@ -40,16 +40,16 @@ typedef enum State{
 	STATE_RUNNING,
 	STATE_SLEEP,
 	STATE_DONE
-};
+} State;
 
 typedef struct PCB{
 	pid_t pid;
-	int total_time;
-	int remain_time;
-	int remain_sleep;
+	
+	int remain_quantum;//남은 타임퀀텀
+	int remain_sleep;//남은 IO시간
 
 	State state;
-};
+} PCB; 
 
 PCB pdb_table[PROCESS_NUM];
 
@@ -58,7 +58,7 @@ int rq_head=0;
 int rq_tail=0;
 
 int cur_process_idx=-1;//현재 실행중인 프로세스
-int cur_quantum_left=0;//남은 타임퀀텀
+
 int done_process_cnt=0;//끝난 프로세스 수
 
 //signal flag
@@ -86,7 +86,10 @@ void sig_terminated_handler(int sig){
 	is_terminated=1;
 }
 //child ''
+volatile sig_atomic_t burst_left=0;
 
+void child_sig_handler(int sig){
+	
 
 int main(){
 	
