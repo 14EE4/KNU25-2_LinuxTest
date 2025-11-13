@@ -35,7 +35,7 @@ typedef enum State{
 	STATE_RUNNING,
 	STATE_SLEEP,
 	STATE_DONE
-}
+};
 
 typedef struct PCB{
 	pid_t pid;
@@ -44,16 +44,22 @@ typedef struct PCB{
 	int remain_sleep;
 
 	State state;
-}
+};
+
+PCB pdb_table[PROCESS_NUM];
 
 int ready_queue[PROCESS_NUM*2];
 int rq_head=0;
 int rq_tail=0;
 
 int cur_process_idx=-1;//현재 실행중인 프로세스
+int cur_quantum_left=0;//남은 타임퀀텀
 int done_process_cnt=0;//끝난 프로세스 수
 
-volatile sig_atomic_t sig_flag=0;
+//signal flag
+volatile sig_atomic_t alm_tick=0;
+volatile sig_atomic_t io_request=0;
+volatile sig_atomic_t is_terminated=0;
 
 //큐 함수
 void enqueue(int p_idx){
@@ -64,8 +70,19 @@ int dequeue(){
 	return ready_queue[rq_head++];
 }
 
+//parant signal handler
+void sig_alm_handler(int sig){
+	alm_tick=1;
+}
+void sig_io_handler(int sig, siginfo_t *info, void *context){
+	io_request=info->si_pid//io요청한 자식의 pid
+}
+void sig_terminated_handler(int sig){
+	is_terminated=1;
+}
+
+
 int main(){
-	PCB pdb_table[PROCESS_NUM];
 	
 
 	
