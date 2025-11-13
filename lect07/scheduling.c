@@ -66,6 +66,14 @@ volatile sig_atomic_t alm_tick=0;
 volatile sig_atomic_t io_request=0;
 volatile sig_atomic_t is_terminated=0;
 
+/*
+ * 시그널
+ * SIGALRM :커널이 스케줄러에게 1초가 지났음을 알려줌
+ * SIGUSR1: 스케줄러가 자식 프로세스에게 CPU수행 지시
+ * SIGUSR2: 자식 프로세스가 I/O요청
+ * SIGCHLD: 자식 프로세스가 종료됨
+ */
+
 //큐 함수
 void enqueue(int p_idx){
 	ready_queue[rq_tail++]=p_idx;
@@ -86,7 +94,7 @@ void sig_terminated_handler(int sig){
 	is_terminated=1;
 }
 //child ''
-volatile sig_atomic_t burst_left=0;
+volatile sig_atomic_t child_burst_left=0;
 
 void child_sig_handler(int sig){
 	
