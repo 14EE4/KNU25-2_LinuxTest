@@ -153,7 +153,27 @@ void scheduler(){
 			pcb->remain_quantum=QUANTUM;
 			printf("[sched] alloc time quantum :%d %d\n",cur_process_idx,pcb->pid);
 			
+// main
+int main(){
+	srand(time(NULL));
 
+	//signal handler config
+	struct sigaction sa_io, sa_chld;
+	
+	signal(SIGALRM, sig_alm_handler);
+	
+	//SIGUSR2(i/o요청받음)
+	memset(&sa_io, 0, sizeof(sa_io));
+	sa_io.sa_sigaction=sig_io_handler;
+	sa_io.sa_flags = SA_SIGINFO;
+	sigaction(SIGUSR2, &sa_io, NULL);
+
+		
+	//SIGCHLD(자식 프로세스 종료)
+	memset(&sa_chld, 0, sizeof(sa_chld));
+	sa_chld.sa_sigaction=sig_terminated_handler;
+	sa_chld.sa_flags = SA_RESTART | SA_NOCLDSTOP;
+	sigaction(SIGCHLD, &sa_chld, NULL);
 
 
 
