@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <time.h>
+#include <string.h>
+
 
 #define PROCESS_NUM 10
 #define QUANTUM 3
@@ -27,7 +32,7 @@ round-robin scheduling수행
  -실행시
  1. CPU버스트-1
  2. 0되면 종료or I/O(랜덤)
- 3. I/O시 부모프로세스에세 I/O요청 시그널 보내기
+ 3. I/O시 부모프로세스에서 I/O요청 시그널 보내기
  */
 typedef enum State{
 	
@@ -80,6 +85,7 @@ void sig_io_handler(int sig, siginfo_t *info, void *context){
 void sig_terminated_handler(int sig){
 	is_terminated=1;
 }
+//child ''
 
 
 int main(){
