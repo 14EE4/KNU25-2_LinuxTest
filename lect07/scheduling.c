@@ -83,6 +83,9 @@ int dequeue(){
 	if (rq_head==rq_tail) return -1;
 	return ready_queue[rq_head++];
 }
+int is_queue_empty(){
+	return rq_head==rq_tail;
+}
 
 //parant signal handler
 void sig_alm_handler(int sig){
@@ -99,7 +102,7 @@ void sig_terminated_handler(int sig){
 }
 //child process
 volatile sig_atomic_t child_burst_left=0;//fork()로 각 프로세스의 남은 버스트 시간 저장됨
-
+//SIGUSR1
 void child_sig_handler(int sig){
 	if (sig==SIGUSR1){
 		//새로 시작했거나 i/o에서 복귀했다면 cpu버스트 랜덤 할당
@@ -135,6 +138,7 @@ void child_main(){
 }
 
 //parent
+//타임 퀀텀 만료시 실행되는 함수
 void scheduler(){
 	if (cur_process_idx!=-1 && pcb_table[cur_process_idx].state==STATE_RUNNING){
 		printf("[sched] process %d -> ready\n",cur_process_idx);
@@ -220,7 +224,16 @@ int main(){
 					}
 				}
 			}
-
+			
+			//실행중인 프로세스 처리
+			if (cur_process_idx!=-1){
+						
+				PCB *pcb=&pcb_table[cur_process_idx];
+				pcb->remain_quantum--;
+				printf("pno %d에게 작업지시\n",cur_process_idx);
+				kill(pcb->pid,SIGUSR1);
+				usleep(5000);//자식 프로세스 처리 대기(sleep은 sigalrm사용함으로 usleep사용);
+				
 		
 	
 
