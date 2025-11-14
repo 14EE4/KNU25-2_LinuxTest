@@ -140,19 +140,20 @@ void scheduler(){
 		printf("[sched] process %d -> ready\n",cur_process_idx);
 		pcb_table[cur_process_idx].state=STATE_READY;
 		enqueue(cur_process_idx);
-		
-		cur_process_idx=dequeue();
+	}		
+	cur_process_idx=dequeue();
 
-		if (cur_process_idx==-1){
-			printf("[sched] IDLE\n");
-		}
-		else{
-			PCB *pcb=&pcb_table[cur_process_idx];
-			pcb->state=STATE_RUNNING;
+	if (cur_process_idx==-1){
+		printf("[sched] IDLE\n");
+	}
+	else{
+		PCB *pcb=&pcb_table[cur_process_idx];
+		pcb->state=STATE_RUNNING;
 
-			pcb->remain_quantum=QUANTUM;
-			printf("[sched] alloc time quantum :%d %d\n",cur_process_idx,pcb->pid);
-			
+		pcb->remain_quantum=QUANTUM;
+		printf("[sched] alloc time quantum :%d %d\n",cur_process_idx,pcb->pid);
+	}
+}	
 // main
 int main(){
 	srand(time(NULL));
@@ -193,6 +194,9 @@ int main(){
 			enqueue(i);
 		}
 	}
+
+	scheduler();
+	alarm(1);//1초 뒤에 알람 시그널 발생
 		
 
 
