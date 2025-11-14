@@ -254,7 +254,31 @@ int main(){
 				alarm(1);
 			}
 		}
+		//SIGUSR2(I/O요청)
+		//
+		if (io_request>0){
+			pid_t req_pid =io_request;
+			io_request=0;
 
+			for (int i=0;i<PROCESS_NUM;i++){
+				if(pcb_table[i].pid==req_pid){
+					//io시간 랜덤으로 1~5
+					int sleep_time=(rand()%5)+1;
+					printf("[i/o] pno %d io request. sleep %d\n",i,sleep_time);
+					pcb_table[i].state=STATE_SLEEP;
+
+					pcb_table[i].remain_sleep=sleep_time;
+					pcb_table[i].remain_quantum=0;
+	
+					scheduler();
+					break;
+				}
+			}
+		}	
+		//SIGCHLD
+		if (is_terminated){
+			is_terminated=0;
+			p
 	
 
 
