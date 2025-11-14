@@ -195,12 +195,33 @@ int main(){
 		}
 	}
 
+	printf("스케줄링 시작\n");
+
 	scheduler();
 	alarm(1);//1초 뒤에 알람 시그널 발생
 		
+	while (done_process_cnt <PROCESS_NUM){
+		pause(); //시그널 들어올때까지 대기
+			 //
+		//sigalrm으로 1초가 지나면
+		if (alm_tick){
+			alm_tick=0;
 
+			printf("alm tick\n");
 
+			//sleep중인거 타임 1 줄이기
+			for (int i=0;i<PROCESS_NUM;i++){
+				if (pcb_table[i].state==STATE_SLEEP){
+					pcb_table[i].remain_sleep--;
+					if (pcb_table[i].remain_sleep==0){
+						printf("pno %d:I/O완료\n", i);
+						pcb.table[i].state=STATE_READY;
+						enqueue(i);
+					}
+				}
+			}
 
-
+		
+	
 
 
