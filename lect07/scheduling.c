@@ -233,8 +233,28 @@ int main(){
 				printf("pno %d에게 작업지시\n",cur_process_idx);
 				kill(pcb->pid,SIGUSR1);
 				usleep(5000);//자식 프로세스 처리 대기(sleep은 sigalrm사용함으로 usleep사용);
-				
-		
+					
+				//io나 종료가 아니라면
+				if (pcb->state==STATE_RUNNING && io_request!=pcb->pid && is_terminated==0){
+					if (pcb->remain_quantum==0){
+						printf("pno %d 퀀텀만료\n",cur_process_idx);
+						scheduler();
+					}else{
+
+						printf("pno %d 계속 실행(남은 퀀텀: %d)\n",cur_process_idx,pcb->remain_quantum);
+					}
+				}
+			}
+			else{
+				if (!is_queue_empty()){
+					scheduler();
+				}
+			}
+			if (done_process_cnt<PROCESS_NUM){
+				alarm(1);
+			}
+		}
+
 	
 
 
