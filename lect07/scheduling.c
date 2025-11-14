@@ -174,11 +174,26 @@ int main(){
 	sa_chld.sa_sigaction=sig_terminated_handler;
 	sa_chld.sa_flags = SA_RESTART | SA_NOCLDSTOP;
 	sigaction(SIGCHLD, &sa_chld, NULL);
+	
+	//자식 프로세스 생성
+	for (int i=0;i<PROCESS_NUM;i++){
+		pid_t pid=fork();
+		if (pid==0){
+			child_main();
+			exit(0);
+		}
+		else{
+			pcb_table[i].pid=pid;
+				
+			pcb_table[i].state=STATE_READY;
 
+			pcb_table[i].remain_sleep=0;
 
-
-
-
+			pcb_table[i].remain_quantum=0;
+			enqueue(i);
+		}
+	}
+		
 
 
 
