@@ -151,7 +151,7 @@ void scheduler(){
 	cur_process_idx=dequeue();
 
 	if (cur_process_idx==-1){
-		printf("[sched] IDLE\n");
+		printf("[sched] IDLE, 종료된 프로세스 수: %d\n",done_process_cnt);
 	}
 	else{
 		PCB *pcb=&pcb_table[cur_process_idx];
