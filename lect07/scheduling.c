@@ -92,7 +92,7 @@ void print_queue(){
 	//현재 레디 큐 출력
 	printf("현재 ready queue: ");
 	for (int i=rq_head;i<rq_tail;i++){
-		print("%d ",ready_queue[i]);
+		printf("%d ",ready_queue[i]);
 	}
 	print("\n");
 }
