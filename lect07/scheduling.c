@@ -61,6 +61,8 @@ int rq_tail=0;
 int cur_process_idx=-1;//현재 실행중인 프로세스
 
 int done_process_cnt=0;//끝난 프로세스 수
+int elapsed_time=0;//출력용 지난 시간
+
 
 //signal flag
 volatile sig_atomic_t alm_tick=0;
@@ -91,6 +93,7 @@ int is_queue_empty(){
 void sig_alm_handler(int sig){
 	//SIGALRM
 	alm_tick=1;
+	elapsed_time++;
 }
 void sig_io_handler(int sig, siginfo_t *info, void *context){
 	//SIGUSR2
@@ -211,7 +214,7 @@ int main(){
 		if (alm_tick){
 			alm_tick=0;
 
-			printf("alm tick\n");
+			printf("[%3ds] alm tick\n",elapsed_time);
 
 			//sleep중인거 타임 1 줄이기
 			for (int i=0;i<PROCESS_NUM;i++){
