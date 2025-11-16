@@ -287,6 +287,7 @@ int main(){
 						//종료된 자식 프로세스
 						if (pcb_table[i].state!=STATE_DONE){
 							printf("[CHLD] pno %d : 종료\n",i);
+							pcb_table[i].state=STATE_DONE;
 							pcb_table[i].remain_quantum=0;
 							done_process_cnt++;
 
