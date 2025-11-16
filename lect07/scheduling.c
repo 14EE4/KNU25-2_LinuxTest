@@ -117,8 +117,8 @@ void child_sig_handler(int sig){
 			//종료하거나 i/o request
 			if (rand()%2==0){
 				printf("[child %d] end\n",getpid());
-				kill(getppid(),SIGCHLD);
-				exit(0);
+				//kill(getppid(),SIGCHLD);
+				exit(0);//자식이 종료되면 커널이 SIGCHLD보냄
 			}else{
 				
 				printf("[child %d] io request\n",getpid());
@@ -176,7 +176,7 @@ int main(){
 		
 	//SIGCHLD(자식 프로세스 종료)
 	memset(&sa_chld, 0, sizeof(sa_chld));
-	sa_chld.sa_sigaction=sig_terminated_handler;
+	sa_chld.sa_handler=sig_terminated_handler;
 	sa_chld.sa_flags = SA_RESTART | SA_NOCLDSTOP;
 	sigaction(SIGCHLD, &sa_chld, NULL);
 	
@@ -278,7 +278,10 @@ int main(){
 		//SIGCHLD
 		if (is_terminated){
 			is_terminated=0;
-			p
+			pid_t terminated_pid;
+
+			//종료된 자식 프로세스 처리
+			while ((terminated_pid = waitpid
 	
 
 
