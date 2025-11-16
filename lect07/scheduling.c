@@ -111,8 +111,8 @@ void child_sig_handler(int sig){
 			printf("[child %d] (new work)burst remain %d\n",getpid(),child_burst_left);
 
 		}
-		
-		printf("[child %d] (running)burst remain %d\n",getpid(),--child_burst_left);
+		child_burst_left--;
+		printf("[child %d] (running)burst remain %d\n",getpid(),child_burst_left);
 		if (child_burst_left==0){
 			//종료하거나 i/o request
 			if (rand()%2==0){
@@ -219,7 +219,7 @@ int main(){
 					pcb_table[i].remain_sleep--;
 					if (pcb_table[i].remain_sleep==0){
 						printf("pno %d:I/O완료\n", i);
-						pcb.table[i].state=STATE_READY;
+						pcb_table[i].state=STATE_READY;
 						enqueue(i);
 					}
 				}
@@ -281,7 +281,27 @@ int main(){
 			pid_t terminated_pid;
 
 			//종료된 자식 프로세스 처리
-			while ((terminated_pid = waitpid
-	
+			while ((terminated_pid = waitpid(-1,NULL,WNOHANG))>0){
+				for (int i=0;i<PROCESS_NUM;i++){
+					if (pcb_table[i].pid==terminated_pid){
+						//종료된 자식 프로세스
+						if (pcb_table[i].state!=STATE_DONE){
+							printf("[CHLD] pno %d : 종료\n",i);
+							pcb_table[i].remain_quantum=0;
+							done_process_cnt++;
+
+							if (i==cur_process_idx){
+								scheduler();
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	printf("모든 프로세스 종료됨\n");
+	return 0;
+}
+				
 
 
