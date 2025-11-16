@@ -54,7 +54,7 @@ typedef struct PCB{
 
 PCB pcb_table[PROCESS_NUM];
 
-int ready_queue[PROCESS_NUM*2];
+int ready_queue[PROCESS_NUM*10];
 int rq_head=0;
 int rq_tail=0;
 
@@ -87,6 +87,14 @@ int dequeue(){
 }
 int is_queue_empty(){
 	return rq_head==rq_tail;
+}
+void print_queue(){
+	//현재 레디 큐 출력
+	printf("현재 ready queue: ");
+	for (int i=rq_head;i<rq_tail;i++){
+		print("%d ",ready_queue[i]);
+	}
+	print("\n");
 }
 
 //parant signal handler
