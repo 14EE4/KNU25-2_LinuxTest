@@ -1,0 +1,610 @@
+pyeongju@pyeongju-550XCJ-550XCR:~/workspace/lect07$ gcc scheduling.c 
+pyeongju@pyeongju-550XCJ-550XCR:~/workspace/lect07$ ./a.out 
+스케줄링 시작
+현재 ready queue: 0 1 2 3 4 5 6 7 8 9 
+[sched] alloc time quantum :idx0 pid9717
+[  1s] alm tick
+pno 0에게 작업지시
+[child 9717] (new work)burst remain 4
+[child 9717] (running)burst remain 3
+pno 0 계속 실행(남은 퀀텀: 2)
+[  2s] alm tick
+pno 0에게 작업지시
+[child 9717] (running)burst remain 2
+pno 0 계속 실행(남은 퀀텀: 1)
+[  3s] alm tick
+pno 0에게 작업지시
+[child 9717] (running)burst remain 1
+pno 0 퀀텀만료
+[sched] process 0 -> ready
+현재 ready queue: 1 2 3 4 5 6 7 8 9 0 
+[sched] alloc time quantum :idx1 pid9718
+[  4s] alm tick
+pno 1에게 작업지시
+[child 9718] (new work)burst remain 1
+[child 9718] (running)burst remain 0
+[child 9718] end
+[CHLD] pno 1 : 종료
+[sched] alloc time quantum :idx2 pid9719
+[  5s] alm tick
+pno 2에게 작업지시
+[child 9719] (new work)burst remain 9
+[child 9719] (running)burst remain 8
+pno 2 계속 실행(남은 퀀텀: 2)
+[  6s] alm tick
+pno 2에게 작업지시
+[child 9719] (running)burst remain 7
+pno 2 계속 실행(남은 퀀텀: 1)
+[  7s] alm tick
+pno 2에게 작업지시
+[child 9719] (running)burst remain 6
+pno 2 퀀텀만료
+[sched] process 2 -> ready
+현재 ready queue: 3 4 5 6 7 8 9 0 2 
+[sched] alloc time quantum :idx3 pid9720
+[  8s] alm tick
+pno 3에게 작업지시
+[child 9720] (new work)burst remain 4
+[child 9720] (running)burst remain 3
+pno 3 계속 실행(남은 퀀텀: 2)
+[  9s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 2
+pno 3 계속 실행(남은 퀀텀: 1)
+[ 10s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 1
+pno 3 퀀텀만료
+[sched] process 3 -> ready
+현재 ready queue: 4 5 6 7 8 9 0 2 3 
+[sched] alloc time quantum :idx4 pid9721
+[ 11s] alm tick
+pno 4에게 작업지시
+[child 9721] (new work)burst remain 9
+[child 9721] (running)burst remain 8
+pno 4 계속 실행(남은 퀀텀: 2)
+[ 12s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 7
+pno 4 계속 실행(남은 퀀텀: 1)
+[ 13s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 6
+pno 4 퀀텀만료
+[sched] process 4 -> ready
+현재 ready queue: 5 6 7 8 9 0 2 3 4 
+[sched] alloc time quantum :idx5 pid9722
+[ 14s] alm tick
+pno 5에게 작업지시
+[child 9722] (new work)burst remain 7
+[child 9722] (running)burst remain 6
+pno 5 계속 실행(남은 퀀텀: 2)
+[ 15s] alm tick
+pno 5에게 작업지시
+[child 9722] (running)burst remain 5
+pno 5 계속 실행(남은 퀀텀: 1)
+[ 16s] alm tick
+pno 5에게 작업지시
+[child 9722] (running)burst remain 4
+pno 5 퀀텀만료
+[sched] process 5 -> ready
+현재 ready queue: 6 7 8 9 0 2 3 4 5 
+[sched] alloc time quantum :idx6 pid9723
+[ 17s] alm tick
+pno 6에게 작업지시
+[child 9723] (new work)burst remain 4
+[child 9723] (running)burst remain 3
+pno 6 계속 실행(남은 퀀텀: 2)
+[ 18s] alm tick
+pno 6에게 작업지시
+[child 9723] (running)burst remain 2
+pno 6 계속 실행(남은 퀀텀: 1)
+[ 19s] alm tick
+pno 6에게 작업지시
+[child 9723] (running)burst remain 1
+pno 6 퀀텀만료
+[sched] process 6 -> ready
+현재 ready queue: 7 8 9 0 2 3 4 5 6 
+[sched] alloc time quantum :idx7 pid9724
+[ 20s] alm tick
+pno 7에게 작업지시
+[child 9724] (new work)burst remain 7
+[child 9724] (running)burst remain 6
+pno 7 계속 실행(남은 퀀텀: 2)
+[ 21s] alm tick
+pno 7에게 작업지시
+[child 9724] (running)burst remain 5
+pno 7 계속 실행(남은 퀀텀: 1)
+[ 22s] alm tick
+pno 7에게 작업지시
+[child 9724] (running)burst remain 4
+pno 7 퀀텀만료
+[sched] process 7 -> ready
+현재 ready queue: 8 9 0 2 3 4 5 6 7 
+[sched] alloc time quantum :idx8 pid9725
+[ 23s] alm tick
+pno 8에게 작업지시
+[child 9725] (new work)burst remain 7
+[child 9725] (running)burst remain 6
+pno 8 계속 실행(남은 퀀텀: 2)
+[ 24s] alm tick
+pno 8에게 작업지시
+[child 9725] (running)burst remain 5
+pno 8 계속 실행(남은 퀀텀: 1)
+[ 25s] alm tick
+pno 8에게 작업지시
+[child 9725] (running)burst remain 4
+pno 8 퀀텀만료
+[sched] process 8 -> ready
+현재 ready queue: 9 0 2 3 4 5 6 7 8 
+[sched] alloc time quantum :idx9 pid9726
+[ 26s] alm tick
+pno 9에게 작업지시
+[child 9726] (new work)burst remain 10
+[child 9726] (running)burst remain 9
+pno 9 계속 실행(남은 퀀텀: 2)
+[ 27s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 8
+pno 9 계속 실행(남은 퀀텀: 1)
+[ 28s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 7
+pno 9 퀀텀만료
+[sched] process 9 -> ready
+현재 ready queue: 0 2 3 4 5 6 7 8 9 
+[sched] alloc time quantum :idx0 pid9717
+[ 29s] alm tick
+pno 0에게 작업지시
+[child 9717] (running)burst remain 0
+[child 9717] io request
+[i/o] pno 0 io request. sleep 3s
+[sched] alloc time quantum :idx2 pid9719
+[ 30s] alm tick
+pno 2에게 작업지시
+[child 9719] (running)burst remain 5
+pno 2 계속 실행(남은 퀀텀: 2)
+[ 31s] alm tick
+pno 2에게 작업지시
+[child 9719] (running)burst remain 4
+pno 2 계속 실행(남은 퀀텀: 1)
+[ 32s] alm tick
+pno 0:I/O완료
+pno 2에게 작업지시
+[child 9719] (running)burst remain 3
+pno 2 퀀텀만료
+[sched] process 2 -> ready
+현재 ready queue: 3 4 5 6 7 8 9 0 2 
+[sched] alloc time quantum :idx3 pid9720
+[ 33s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 0
+[child 9720] io request
+[i/o] pno 3 io request. sleep 5s
+[sched] alloc time quantum :idx4 pid9721
+[ 34s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 5
+pno 4 계속 실행(남은 퀀텀: 2)
+[ 35s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 4
+pno 4 계속 실행(남은 퀀텀: 1)
+[ 36s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 3
+pno 4 퀀텀만료
+[sched] process 4 -> ready
+현재 ready queue: 5 6 7 8 9 0 2 4 
+[sched] alloc time quantum :idx5 pid9722
+[ 37s] alm tick
+pno 5에게 작업지시
+[child 9722] (running)burst remain 3
+pno 5 계속 실행(남은 퀀텀: 2)
+[ 38s] alm tick
+pno 3:I/O완료
+pno 5에게 작업지시
+[child 9722] (running)burst remain 2
+pno 5 계속 실행(남은 퀀텀: 1)
+[ 39s] alm tick
+pno 5에게 작업지시
+[child 9722] (running)burst remain 1
+pno 5 퀀텀만료
+[sched] process 5 -> ready
+현재 ready queue: 6 7 8 9 0 2 4 3 5 
+[sched] alloc time quantum :idx6 pid9723
+[ 40s] alm tick
+pno 6에게 작업지시
+[child 9723] (running)burst remain 0
+[child 9723] io request
+[i/o] pno 6 io request. sleep 3s
+[sched] alloc time quantum :idx7 pid9724
+[ 41s] alm tick
+pno 7에게 작업지시
+[child 9724] (running)burst remain 3
+pno 7 계속 실행(남은 퀀텀: 2)
+[ 42s] alm tick
+pno 7에게 작업지시
+[child 9724] (running)burst remain 2
+pno 7 계속 실행(남은 퀀텀: 1)
+[ 43s] alm tick
+pno 6:I/O완료
+pno 7에게 작업지시
+[child 9724] (running)burst remain 1
+pno 7 퀀텀만료
+[sched] process 7 -> ready
+현재 ready queue: 8 9 0 2 4 3 5 6 7 
+[sched] alloc time quantum :idx8 pid9725
+[ 44s] alm tick
+pno 8에게 작업지시
+[child 9725] (running)burst remain 3
+pno 8 계속 실행(남은 퀀텀: 2)
+[ 45s] alm tick
+pno 8에게 작업지시
+[child 9725] (running)burst remain 2
+pno 8 계속 실행(남은 퀀텀: 1)
+[ 46s] alm tick
+pno 8에게 작업지시
+[child 9725] (running)burst remain 1
+pno 8 퀀텀만료
+[sched] process 8 -> ready
+현재 ready queue: 9 0 2 4 3 5 6 7 8 
+[sched] alloc time quantum :idx9 pid9726
+[ 47s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 6
+pno 9 계속 실행(남은 퀀텀: 2)
+[ 48s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 5
+pno 9 계속 실행(남은 퀀텀: 1)
+[ 49s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 4
+pno 9 퀀텀만료
+[sched] process 9 -> ready
+현재 ready queue: 0 2 4 3 5 6 7 8 9 
+[sched] alloc time quantum :idx0 pid9717
+[ 50s] alm tick
+pno 0에게 작업지시
+[child 9717] (new work)burst remain 1
+[child 9717] (running)burst remain 0
+[child 9717] io request
+[i/o] pno 0 io request. sleep 4s
+[sched] alloc time quantum :idx2 pid9719
+[ 51s] alm tick
+pno 2에게 작업지시
+[child 9719] (running)burst remain 2
+pno 2 계속 실행(남은 퀀텀: 2)
+[ 52s] alm tick
+pno 2에게 작업지시
+[child 9719] (running)burst remain 1
+pno 2 계속 실행(남은 퀀텀: 1)
+[ 53s] alm tick
+pno 2에게 작업지시
+[child 9719] (running)burst remain 0
+[child 9719] end
+[CHLD] pno 2 : 종료
+[sched] alloc time quantum :idx4 pid9721
+[ 54s] alm tick
+pno 0:I/O완료
+pno 4에게 작업지시
+[child 9721] (running)burst remain 2
+pno 4 계속 실행(남은 퀀텀: 2)
+[ 55s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 1
+pno 4 계속 실행(남은 퀀텀: 1)
+[ 56s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 0
+[child 9721] io request
+[i/o] pno 4 io request. sleep 3s
+[sched] alloc time quantum :idx3 pid9720
+[ 57s] alm tick
+pno 3에게 작업지시
+[child 9720] (new work)burst remain 6
+[child 9720] (running)burst remain 5
+pno 3 계속 실행(남은 퀀텀: 2)
+[ 58s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 4
+pno 3 계속 실행(남은 퀀텀: 1)
+[ 59s] alm tick
+pno 4:I/O완료
+pno 3에게 작업지시
+[child 9720] (running)burst remain 3
+pno 3 퀀텀만료
+[sched] process 3 -> ready
+현재 ready queue: 5 6 7 8 9 0 4 3 
+[sched] alloc time quantum :idx5 pid9722
+[ 60s] alm tick
+pno 5에게 작업지시
+[child 9722] (running)burst remain 0
+[child 9722] io request
+[i/o] pno 5 io request. sleep 1s
+[sched] alloc time quantum :idx6 pid9723
+[ 61s] alm tick
+pno 5:I/O완료
+pno 6에게 작업지시
+[child 9723] (new work)burst remain 2
+[child 9723] (running)burst remain 1
+pno 6 계속 실행(남은 퀀텀: 2)
+[ 62s] alm tick
+pno 6에게 작업지시
+[child 9723] (running)burst remain 0
+[child 9723] end
+[CHLD] pno 6 : 종료
+[sched] alloc time quantum :idx7 pid9724
+[ 63s] alm tick
+pno 7에게 작업지시
+[child 9724] (running)burst remain 0
+[child 9724] end
+[CHLD] pno 7 : 종료
+[sched] alloc time quantum :idx8 pid9725
+[ 64s] alm tick
+pno 8에게 작업지시
+[child 9725] (running)burst remain 0
+[child 9725] end
+[CHLD] pno 8 : 종료
+[sched] alloc time quantum :idx9 pid9726
+[ 65s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 3
+pno 9 계속 실행(남은 퀀텀: 2)
+[ 66s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 2
+pno 9 계속 실행(남은 퀀텀: 1)
+[ 67s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 1
+pno 9 퀀텀만료
+[sched] process 9 -> ready
+현재 ready queue: 0 4 3 5 9 
+[sched] alloc time quantum :idx0 pid9717
+[ 68s] alm tick
+pno 0에게 작업지시
+[child 9717] (new work)burst remain 6
+[child 9717] (running)burst remain 5
+pno 0 계속 실행(남은 퀀텀: 2)
+[ 69s] alm tick
+pno 0에게 작업지시
+[child 9717] (running)burst remain 4
+pno 0 계속 실행(남은 퀀텀: 1)
+[ 70s] alm tick
+pno 0에게 작업지시
+[child 9717] (running)burst remain 3
+pno 0 퀀텀만료
+[sched] process 0 -> ready
+현재 ready queue: 4 3 5 9 0 
+[sched] alloc time quantum :idx4 pid9721
+[ 71s] alm tick
+pno 4에게 작업지시
+[child 9721] (new work)burst remain 2
+[child 9721] (running)burst remain 1
+pno 4 계속 실행(남은 퀀텀: 2)
+[ 72s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 0
+[child 9721] io request
+[i/o] pno 4 io request. sleep 2s
+[sched] alloc time quantum :idx3 pid9720
+[ 73s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 2
+pno 3 계속 실행(남은 퀀텀: 2)
+[ 74s] alm tick
+pno 4:I/O완료
+pno 3에게 작업지시
+[child 9720] (running)burst remain 1
+pno 3 계속 실행(남은 퀀텀: 1)
+[ 75s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 0
+[child 9720] io request
+[i/o] pno 3 io request. sleep 1s
+[sched] alloc time quantum :idx5 pid9722
+[ 76s] alm tick
+pno 3:I/O완료
+pno 5에게 작업지시
+[child 9722] (new work)burst remain 1
+[child 9722] (running)burst remain 0
+[child 9722] end
+[CHLD] pno 5 : 종료
+[sched] alloc time quantum :idx9 pid9726
+[ 77s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 0
+[child 9726] io request
+[i/o] pno 9 io request. sleep 4s
+[sched] alloc time quantum :idx0 pid9717
+[ 78s] alm tick
+pno 0에게 작업지시
+[child 9717] (running)burst remain 2
+pno 0 계속 실행(남은 퀀텀: 2)
+[ 79s] alm tick
+pno 0에게 작업지시
+[child 9717] (running)burst remain 1
+pno 0 계속 실행(남은 퀀텀: 1)
+[ 80s] alm tick
+pno 0에게 작업지시
+[child 9717] (running)burst remain 0
+[child 9717] end
+[CHLD] pno 0 : 종료
+[sched] alloc time quantum :idx4 pid9721
+[ 81s] alm tick
+pno 9:I/O완료
+pno 4에게 작업지시
+[child 9721] (new work)burst remain 10
+[child 9721] (running)burst remain 9
+pno 4 계속 실행(남은 퀀텀: 2)
+[ 82s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 8
+pno 4 계속 실행(남은 퀀텀: 1)
+[ 83s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 7
+pno 4 퀀텀만료
+[sched] process 4 -> ready
+현재 ready queue: 3 9 4 
+[sched] alloc time quantum :idx3 pid9720
+[ 84s] alm tick
+pno 3에게 작업지시
+[child 9720] (new work)burst remain 10
+[child 9720] (running)burst remain 9
+pno 3 계속 실행(남은 퀀텀: 2)
+[ 85s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 8
+pno 3 계속 실행(남은 퀀텀: 1)
+[ 86s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 7
+pno 3 퀀텀만료
+[sched] process 3 -> ready
+현재 ready queue: 9 4 3 
+[sched] alloc time quantum :idx9 pid9726
+[ 87s] alm tick
+pno 9에게 작업지시
+[child 9726] (new work)burst remain 4
+[child 9726] (running)burst remain 3
+pno 9 계속 실행(남은 퀀텀: 2)
+[ 88s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 2
+pno 9 계속 실행(남은 퀀텀: 1)
+[ 89s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 1
+pno 9 퀀텀만료
+[sched] process 9 -> ready
+현재 ready queue: 4 3 9 
+[sched] alloc time quantum :idx4 pid9721
+[ 90s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 6
+pno 4 계속 실행(남은 퀀텀: 2)
+[ 91s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 5
+pno 4 계속 실행(남은 퀀텀: 1)
+[ 92s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 4
+pno 4 퀀텀만료
+[sched] process 4 -> ready
+현재 ready queue: 3 9 4 
+[sched] alloc time quantum :idx3 pid9720
+[ 93s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 6
+pno 3 계속 실행(남은 퀀텀: 2)
+[ 94s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 5
+pno 3 계속 실행(남은 퀀텀: 1)
+[ 95s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 4
+pno 3 퀀텀만료
+[sched] process 3 -> ready
+현재 ready queue: 9 4 3 
+[sched] alloc time quantum :idx9 pid9726
+[ 96s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 0
+[child 9726] io request
+[i/o] pno 9 io request. sleep 3s
+[sched] alloc time quantum :idx4 pid9721
+[ 97s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 3
+pno 4 계속 실행(남은 퀀텀: 2)
+[ 98s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 2
+pno 4 계속 실행(남은 퀀텀: 1)
+[ 99s] alm tick
+pno 9:I/O완료
+pno 4에게 작업지시
+[child 9721] (running)burst remain 1
+pno 4 퀀텀만료
+[sched] process 4 -> ready
+현재 ready queue: 3 9 4 
+[sched] alloc time quantum :idx3 pid9720
+[100s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 3
+pno 3 계속 실행(남은 퀀텀: 2)
+[101s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 2
+pno 3 계속 실행(남은 퀀텀: 1)
+[102s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 1
+pno 3 퀀텀만료
+[sched] process 3 -> ready
+현재 ready queue: 9 4 3 
+[sched] alloc time quantum :idx9 pid9726
+[103s] alm tick
+pno 9에게 작업지시
+[child 9726] (new work)burst remain 7
+[child 9726] (running)burst remain 6
+pno 9 계속 실행(남은 퀀텀: 2)
+[104s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 5
+pno 9 계속 실행(남은 퀀텀: 1)
+[105s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 4
+pno 9 퀀텀만료
+[sched] process 9 -> ready
+현재 ready queue: 4 3 9 
+[sched] alloc time quantum :idx4 pid9721
+[106s] alm tick
+pno 4에게 작업지시
+[child 9721] (running)burst remain 0
+[child 9721] io request
+[i/o] pno 4 io request. sleep 3s
+[sched] alloc time quantum :idx3 pid9720
+[107s] alm tick
+pno 3에게 작업지시
+[child 9720] (running)burst remain 0
+[child 9720] end
+[CHLD] pno 3 : 종료
+[sched] alloc time quantum :idx9 pid9726
+[108s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 3
+pno 9 계속 실행(남은 퀀텀: 2)
+[109s] alm tick
+pno 4:I/O완료
+pno 9에게 작업지시
+[child 9726] (running)burst remain 2
+pno 9 계속 실행(남은 퀀텀: 1)
+[110s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 1
+pno 9 퀀텀만료
+[sched] process 9 -> ready
+현재 ready queue: 4 9 
+[sched] alloc time quantum :idx4 pid9721
+[111s] alm tick
+pno 4에게 작업지시
+[child 9721] (new work)burst remain 1
+[child 9721] (running)burst remain 0
+[child 9721] end
+[CHLD] pno 4 : 종료
+[sched] alloc time quantum :idx9 pid9726
+[112s] alm tick
+pno 9에게 작업지시
+[child 9726] (running)burst remain 0
+[child 9726] end
+[CHLD] pno 9 : 종료
+[sched] IDLE, 종료된 프로세스 수: 10
+모든 프로세스 종료됨
+
