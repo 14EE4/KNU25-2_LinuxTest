@@ -155,6 +155,8 @@ void scheduler(){
 		printf("[sched] process %d -> ready\n",cur_process_idx);
 		pcb_table[cur_process_idx].state=STATE_READY;
 		enqueue(cur_process_idx);
+		print_queue();
+
 	}		
 	cur_process_idx=dequeue();
 
@@ -166,7 +168,7 @@ void scheduler(){
 		pcb->state=STATE_RUNNING;
 
 		pcb->remain_quantum=QUANTUM;
-		printf("[sched] alloc time quantum :%d %d\n",cur_process_idx,pcb->pid);
+		printf("[sched] alloc time quantum :idx%d pid%d\n",cur_process_idx,pcb->pid);
 	}
 }	
 // main
@@ -211,6 +213,7 @@ int main(){
 	}
 
 	printf("스케줄링 시작\n");
+	print_queue();
 
 	scheduler();
 	alarm(1);//1초 뒤에 알람 시그널 발생
@@ -275,7 +278,7 @@ int main(){
 				if(pcb_table[i].pid==req_pid){
 					//io시간 랜덤으로 1~5
 					int sleep_time=(rand()%5)+1;
-					printf("[i/o] pno %d io request. sleep %d\n",i,sleep_time);
+					printf("[i/o] pno %d io request. sleep %ds\n",i,sleep_time);
 					pcb_table[i].state=STATE_SLEEP;
 
 					pcb_table[i].remain_sleep=sleep_time;
