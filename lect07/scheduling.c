@@ -94,7 +94,7 @@ void print_queue(){
 	for (int i=rq_head;i<rq_tail;i++){
 		printf("%d ",ready_queue[i]);
 	}
-	print("\n");
+	printf("\n");
 }
 
 //parant signal handler
