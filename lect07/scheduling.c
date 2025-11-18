@@ -54,7 +54,7 @@ typedef struct PCB{
 	//성능 결과 출력용
 	int total_burst_time;
 	int total_waiting_time;
-	int start_time;
+	//int start_time;//모두 0초에 레디큐에 들어감
 	int end_time;
 
 } PCB; 
@@ -66,7 +66,6 @@ int rq_head=0;
 int rq_tail=0;
 
 int cur_process_idx=-1;//현재 실행중인 프로세스
-
 int done_process_cnt=0;//끝난 프로세스 수
 int elapsed_time=0;//출력용 지난 시간
 
@@ -103,6 +102,40 @@ void print_queue(){
 	}
 	printf("\n");
 }
+
+//성능 계산 출력 함수
+void print_performance(){
+	double total_turnaround_time=0.0;
+	double total_waiting_time_sum=0.0;
+	long total_service_time_sum=0;
+	
+	printf("\n결과\n");
+	printf("pno\trunning time\twait\tturnaround\n");
+	for (int i=0;i<PROCESS_NUM;i++){
+		PCB *pcb=&pcb_table[i];
+		printf("%d\t%d\t%d\t%d\n",
+				i,
+				pcb->total_burst_time,
+				pcb->total_waiting_time,
+				pcb->end_time
+		      );
+		total_turnaround_time+=	pcb->end_time;
+		total_waiting_time_sum+=pcb->total_waiting_time;
+		total_service_time_sum+=pcb->total_burst_time;
+	}
+	int total_idle_time=elapsed_time-total_service_time_sum;
+	
+	printf("
+			평균 반환 시간: %.2fs\n
+			평균 대기 시간: %.2fs\n
+			총 실행 시간: %ds\n
+			유휴 시간: %ds\n
+			프로세스 개수%d\n
+			타임 퀀텀: %d\n
+			"
+	      );
+}
+
 
 //parant signal handler
 void sig_alm_handler(int sig){
