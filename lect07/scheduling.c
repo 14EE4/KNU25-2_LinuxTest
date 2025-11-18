@@ -128,7 +128,7 @@ void print_performance(){
 	
 	printf("평균 반환 시간: %.2fs\n평균 대기 시간: %.2fs\n총 실행 시간: %ds\n유휴 시간: %ds\n프로세스 개수%d\n타임 퀀텀: %d\n",
 			total_turnaround_time/PROCESS_NUM,
-			total_waiting_time/PROCESS_NUM,
+			total_waiting_time_sum/PROCESS_NUM,
 			elapsed_time,
 			total_idle_time,
 			PROCESS_NUM,
