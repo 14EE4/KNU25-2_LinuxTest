@@ -114,7 +114,7 @@ void print_performance(){
 	printf("pno\trunning time\twait\tturnaround\n");
 	for (int i=0;i<PROCESS_NUM;i++){
 		PCB *pcb=&pcb_table[i];
-		printf("%d\t%d\t%d\t%d\n",
+		printf("%d\t%d\t\t%d\t%d\n",
 				i,
 				pcb->total_burst_time,
 				pcb->total_waiting_time,
