@@ -263,7 +263,7 @@ int main(){
 	for (int i=0;i<PROCESS_NUM;i++){
 		pid_t pid=fork();
 		if (pid==0){
-			child_main();
+			child_main(input_seed+i+1);
 			exit(0);
 		}
 		else{
@@ -274,11 +274,18 @@ int main(){
 			pcb_table[i].remain_sleep=0;
 
 			pcb_table[i].remain_quantum=0;
+
+
+			pcb_table[i].total_burst_time=0;
+			
+			pcb_table[i].total_waiting_time=0;
+			pcb_table[i].start_time=0;
+			pcb_table[i].end_time=0;
 			enqueue(i);
 		}
 	}
 
-	printf("스케줄링 시작\n");
+	printf("스케줄링 시작 quantum: %d, seed: %d\n",g_quantum_size,input_seed);
 	print_queue();
 
 	scheduler();
@@ -310,6 +317,7 @@ int main(){
 						
 				PCB *pcb=&pcb_table[cur_process_idx];
 				pcb->remain_quantum--;
+				pcb->total_burst_time++;
 				printf("pno %d에게 작업지시\n",cur_process_idx);
 				kill(pcb->pid,SIGUSR1);
 				usleep(5000);//자식 프로세스 처리 대기(sleep은 sigalrm사용함으로 usleep사용);
@@ -381,6 +389,7 @@ int main(){
 		}
 	}
 	printf("모든 프로세스 종료됨\n");
+	print_performance();
 	return 0;
 }
 				
