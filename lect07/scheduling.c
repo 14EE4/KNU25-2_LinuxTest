@@ -126,14 +126,7 @@ void print_performance(){
 	}
 	int total_idle_time=elapsed_time-total_service_time_sum;
 	
-	printf("
-			평균 반환 시간: %.2fs\n
-			평균 대기 시간: %.2fs\n
-			총 실행 시간: %ds\n
-			유휴 시간: %ds\n
-			프로세스 개수%d\n
-			타임 퀀텀: %d\n
-			",
+	printf("평균 반환 시간: %.2fs\n평균 대기 시간: %.2fs\n총 실행 시간: %ds\n유휴 시간: %ds\n프로세스 개수%d\n타임 퀀텀: %d\n",
 			total_turnaround_time/PROCESS_NUM,
 			total_waiting_time/PROCESS_NUM,
 			elapsed_time,
@@ -216,7 +209,7 @@ void scheduler(){
 	else{
 		PCB *pcb=&pcb_table[cur_process_idx];
 		if (pcb->state==STATE_READY){
-			pcb->total_waiting_time+=elapsed_time-pcb->start_time;
+			pcb->total_waiting_time+=(elapsed_time-pcb->start_time);
 		}
 
 		
@@ -235,6 +228,7 @@ int main(){
 
 	printf("time quantum: ");		
 	scanf("%d", &input_quantum);
+	g_quantum_size=input_quantum;
 
 	printf("seed: ");
 	scanf("%d", &input_seed);
@@ -308,6 +302,8 @@ int main(){
 						printf("pno %d:I/O완료\n", i);
 						pcb_table[i].state=STATE_READY;
 						enqueue(i);
+						pcb_table[i].start_time=elapsed_time;
+
 					}
 				}
 			}
@@ -376,6 +372,7 @@ int main(){
 						if (pcb_table[i].state!=STATE_DONE){
 							printf("[CHLD] pno %d : 종료\n",i);
 							pcb_table[i].state=STATE_DONE;
+							pcb_table[i].end_time=elapsed_time;
 							pcb_table[i].remain_quantum=0;
 							done_process_cnt++;
 
