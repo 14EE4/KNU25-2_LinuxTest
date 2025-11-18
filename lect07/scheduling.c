@@ -204,6 +204,8 @@ void scheduler(){
 		pcb_table[cur_process_idx].state=STATE_READY;
 		enqueue(cur_process_idx);
 		print_queue();
+		pcb_table[cur_process_idx].start_time=elapsed_time;
+
 
 	}		
 	cur_process_idx=dequeue();
@@ -220,13 +222,24 @@ void scheduler(){
 		
 		pcb->state=STATE_RUNNING;
 
-		pcb->remain_quantum=QUANTUM;
+		pcb->remain_quantum=g_quantum_size;
+
+	
 		printf("[sched] alloc time quantum :idx%d pid%d\n",cur_process_idx,pcb->pid);
 	}
 }	
 // main
 int main(){
-	srand(time(NULL));
+	int input_seed=0;
+	int input_quantum=0;
+
+	printf("time quantum: ");		
+	scanf("%d", &input_quantum);
+
+	printf("seed: ");
+	scanf("%d", &input_seed);
+
+	srand(input_seed);
 
 	//signal handler config
 	struct sigaction sa_io, sa_chld;
