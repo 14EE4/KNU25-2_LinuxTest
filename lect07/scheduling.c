@@ -54,7 +54,7 @@ typedef struct PCB{
 	//성능 결과 출력용
 	int total_burst_time;
 	int total_waiting_time;
-	//int start_time;//모두 0초에 레디큐에 들어감
+	int start_time;//ready큐에 들어간 시각
 	int end_time;
 
 } PCB; 
@@ -68,6 +68,7 @@ int rq_tail=0;
 int cur_process_idx=-1;//현재 실행중인 프로세스
 int done_process_cnt=0;//끝난 프로세스 수
 int elapsed_time=0;//출력용 지난 시간
+int g_quantum_size=QUANTUM;//타임 퀀텀
 
 
 //signal flag
@@ -132,7 +133,14 @@ void print_performance(){
 			유휴 시간: %ds\n
 			프로세스 개수%d\n
 			타임 퀀텀: %d\n
-			"
+			",
+			total_turnaround_time/PROCESS_NUM,
+			total_waiting_time/PROCESS_NUM,
+			elapsed_time,
+			total_idle_time,
+			PROCESS_NUM,
+			g_quantum_size
+
 	      );
 }
 
@@ -179,8 +187,8 @@ void child_sig_handler(int sig){
 		}
 	}
 }
-void child_main(){
-	srand(time(NULL)^getpid());
+void child_main(int seed){
+	srand(seed);
 
 	signal(SIGUSR1, child_sig_handler);//시그널 핸들러 설정
 	while(1){
@@ -205,6 +213,11 @@ void scheduler(){
 	}
 	else{
 		PCB *pcb=&pcb_table[cur_process_idx];
+		if (pcb->state==STATE_READY){
+			pcb->total_waiting_time+=elapsed_time-pcb->start_time;
+		}
+
+		
 		pcb->state=STATE_RUNNING;
 
 		pcb->remain_quantum=QUANTUM;
