@@ -50,6 +50,13 @@ typedef struct PCB{
 	int remain_sleep;//남은 I/O시간
 
 	State state;
+
+	//성능 결과 출력용
+	int total_burst_time;
+	int total_waiting_time;
+	int start_time;
+	int end_time;
+
 } PCB; 
 
 PCB pcb_table[PROCESS_NUM];
