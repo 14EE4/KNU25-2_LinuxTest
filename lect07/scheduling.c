@@ -344,7 +344,7 @@ int main(){
 				pcb->total_burst_time++;
 				printf("p_idx %d에게 작업지시\n",cur_process_idx);
 				kill(pcb->pid,SIGUSR1);
-				usleep(5000);//자식 프로세스 처리 대기(sleep은 sigalrm사용함으로 usleep사용);
+				usleep(5000);//자식 프로세스 처리 대기
 					
 				//io나 종료가 아니라면
 				if (pcb->state==STATE_RUNNING && io_request!=pcb->pid && is_terminated==0){
