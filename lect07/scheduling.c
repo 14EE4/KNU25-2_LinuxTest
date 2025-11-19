@@ -139,7 +139,7 @@ void print_performance(){
 	}
 	int total_idle_time=elapsed_time-total_service_time_sum;
 	
-	printf("평균 반환 시간: %.2fs\n평균 대기 시간: %.2fs\n총 실행 시간: %ds\n유휴 시간: %ds\n프로세스 개수%d\n타임 퀀텀: %d\nseed:%d\n최대 버스트 시간: %d\n최대 I/O시간:%d\nI/O확률: %d%%",
+	printf("평균 반환 시간: %.2fs\n평균 대기 시간: %.2fs\n총 실행 시간: %ds\n유휴 시간: %ds\n프로세스 개수%d\n타임 퀀텀: %d\nseed:%d\n최대 버스트 시간: %d\n최대 I/O시간:%d\nI/O확률: %d%%\n",
 			total_turnaround_time/PROCESS_NUM,
 			total_waiting_time_sum/PROCESS_NUM,
 			elapsed_time,
@@ -184,7 +184,7 @@ void child_sig_handler(int sig){
 		printf("[child %d] (running)burst remain %d\n",getpid(),child_burst_left);
 		if (child_burst_left==0){
 			//종료하거나 i/o request
-			if ((rand()%100)<g_io_prob){
+			if ((rand()%100)>=g_io_prob){
 				printf("[child %d] end\n",getpid());
 				//kill(getppid(),SIGCHLD);
 				exit(0);//자식이 종료되면 커널이 SIGCHLD보냄
