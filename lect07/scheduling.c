@@ -251,10 +251,10 @@ int main(){
 	scanf("%d", &g_max_burst);
 
 	printf("max i/O time: ");
-	scanf("%d",g_max_io);
+	scanf("%d",&g_max_io);
 
 	printf("I/O 확률(%%): ");
-	scanf("%d", g_io_prob);
+	scanf("%d", &g_io_prob);
 
 
 	printf("seed: ");
