@@ -1,0 +1,533 @@
+time quantum: 15
+seed: 2025
+스케줄링 시작 quantum: 15, seed: 2025
+현재 ready queue: 0 1 2 3 4 5 6 7 8 9 
+[sched] alloc time quantum :idx0 pid7340
+[  1s] alm tick
+p_idx 0에게 작업지시
+[child 7340] (new work)burst remain 8
+[child 7340] (running)burst remain 7
+p_idx 0 계속 실행(남은 퀀텀: 14)
+[  2s] alm tick
+p_idx 0에게 작업지시
+[child 7340] (running)burst remain 6
+p_idx 0 계속 실행(남은 퀀텀: 13)
+[  3s] alm tick
+p_idx 0에게 작업지시
+[child 7340] (running)burst remain 5
+p_idx 0 계속 실행(남은 퀀텀: 12)
+[  4s] alm tick
+p_idx 0에게 작업지시
+[child 7340] (running)burst remain 4
+p_idx 0 계속 실행(남은 퀀텀: 11)
+[  5s] alm tick
+p_idx 0에게 작업지시
+[child 7340] (running)burst remain 3
+p_idx 0 계속 실행(남은 퀀텀: 10)
+[  6s] alm tick
+p_idx 0에게 작업지시
+[child 7340] (running)burst remain 2
+p_idx 0 계속 실행(남은 퀀텀: 9)
+[  7s] alm tick
+p_idx 0에게 작업지시
+[child 7340] (running)burst remain 1
+p_idx 0 계속 실행(남은 퀀텀: 8)
+[  8s] alm tick
+p_idx 0에게 작업지시
+[child 7340] (running)burst remain 0
+[child 7340] end
+[CHLD] p_idx 0 : 종료
+[sched] alloc time quantum :idx1 pid7341
+[  9s] alm tick
+p_idx 1에게 작업지시
+[child 7341] (new work)burst remain 4
+[child 7341] (running)burst remain 3
+p_idx 1 계속 실행(남은 퀀텀: 14)
+[ 10s] alm tick
+p_idx 1에게 작업지시
+[child 7341] (running)burst remain 2
+p_idx 1 계속 실행(남은 퀀텀: 13)
+[ 11s] alm tick
+p_idx 1에게 작업지시
+[child 7341] (running)burst remain 1
+p_idx 1 계속 실행(남은 퀀텀: 12)
+[ 12s] alm tick
+p_idx 1에게 작업지시
+[child 7341] (running)burst remain 0
+[child 7341] io request
+[i/o] p_idx 1 io request. sleep 2s
+[sched] alloc time quantum :idx2 pid7342
+[ 13s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (new work)burst remain 9
+[child 7342] (running)burst remain 8
+p_idx 2 계속 실행(남은 퀀텀: 14)
+[ 14s] alm tick
+p_idx 1:I/O완료
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 7
+p_idx 2 계속 실행(남은 퀀텀: 13)
+[ 15s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 6
+p_idx 2 계속 실행(남은 퀀텀: 12)
+[ 16s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 5
+p_idx 2 계속 실행(남은 퀀텀: 11)
+[ 17s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 4
+p_idx 2 계속 실행(남은 퀀텀: 10)
+[ 18s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 3
+p_idx 2 계속 실행(남은 퀀텀: 9)
+[ 19s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 2
+p_idx 2 계속 실행(남은 퀀텀: 8)
+[ 20s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 1
+p_idx 2 계속 실행(남은 퀀텀: 7)
+[ 21s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 0
+[child 7342] io request
+[i/o] p_idx 2 io request. sleep 4s
+[sched] alloc time quantum :idx3 pid7343
+[ 22s] alm tick
+p_idx 3에게 작업지시
+[child 7343] (new work)burst remain 8
+[child 7343] (running)burst remain 7
+p_idx 3 계속 실행(남은 퀀텀: 14)
+[ 23s] alm tick
+p_idx 3에게 작업지시
+[child 7343] (running)burst remain 6
+p_idx 3 계속 실행(남은 퀀텀: 13)
+[ 24s] alm tick
+p_idx 3에게 작업지시
+[child 7343] (running)burst remain 5
+p_idx 3 계속 실행(남은 퀀텀: 12)
+[ 25s] alm tick
+p_idx 2:I/O완료
+p_idx 3에게 작업지시
+[child 7343] (running)burst remain 4
+p_idx 3 계속 실행(남은 퀀텀: 11)
+[ 26s] alm tick
+p_idx 3에게 작업지시
+[child 7343] (running)burst remain 3
+p_idx 3 계속 실행(남은 퀀텀: 10)
+[ 27s] alm tick
+p_idx 3에게 작업지시
+[child 7343] (running)burst remain 2
+p_idx 3 계속 실행(남은 퀀텀: 9)
+[ 28s] alm tick
+p_idx 3에게 작업지시
+[child 7343] (running)burst remain 1
+p_idx 3 계속 실행(남은 퀀텀: 8)
+[ 29s] alm tick
+p_idx 3에게 작업지시
+[child 7343] (running)burst remain 0
+[child 7343] end
+[CHLD] p_idx 3 : 종료
+[sched] alloc time quantum :idx4 pid7344
+[ 30s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (new work)burst remain 3
+[child 7344] (running)burst remain 2
+p_idx 4 계속 실행(남은 퀀텀: 14)
+[ 31s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 1
+p_idx 4 계속 실행(남은 퀀텀: 13)
+[ 32s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 0
+[child 7344] io request
+[i/o] p_idx 4 io request. sleep 4s
+[sched] alloc time quantum :idx5 pid7345
+[ 33s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (new work)burst remain 6
+[child 7345] (running)burst remain 5
+p_idx 5 계속 실행(남은 퀀텀: 14)
+[ 34s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 4
+p_idx 5 계속 실행(남은 퀀텀: 13)
+[ 35s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 3
+p_idx 5 계속 실행(남은 퀀텀: 12)
+[ 36s] alm tick
+p_idx 4:I/O완료
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 2
+p_idx 5 계속 실행(남은 퀀텀: 11)
+[ 37s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 1
+p_idx 5 계속 실행(남은 퀀텀: 10)
+[ 38s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 0
+[child 7345] io request
+[i/o] p_idx 5 io request. sleep 5s
+[sched] alloc time quantum :idx6 pid7346
+[ 39s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (new work)burst remain 6
+[child 7346] (running)burst remain 5
+p_idx 6 계속 실행(남은 퀀텀: 14)
+[ 40s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 4
+p_idx 6 계속 실행(남은 퀀텀: 13)
+[ 41s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 3
+p_idx 6 계속 실행(남은 퀀텀: 12)
+[ 42s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 2
+p_idx 6 계속 실행(남은 퀀텀: 11)
+[ 43s] alm tick
+p_idx 5:I/O완료
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 1
+p_idx 6 계속 실행(남은 퀀텀: 10)
+[ 44s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 0
+[child 7346] io request
+[i/o] p_idx 6 io request. sleep 2s
+[sched] alloc time quantum :idx7 pid7347
+[ 45s] alm tick
+p_idx 7에게 작업지시
+[child 7347] (new work)burst remain 4
+[child 7347] (running)burst remain 3
+p_idx 7 계속 실행(남은 퀀텀: 14)
+[ 46s] alm tick
+p_idx 6:I/O완료
+p_idx 7에게 작업지시
+[child 7347] (running)burst remain 2
+p_idx 7 계속 실행(남은 퀀텀: 13)
+[ 47s] alm tick
+p_idx 7에게 작업지시
+[child 7347] (running)burst remain 1
+p_idx 7 계속 실행(남은 퀀텀: 12)
+[ 48s] alm tick
+p_idx 7에게 작업지시
+[child 7347] (running)burst remain 0
+[child 7347] end
+[CHLD] p_idx 7 : 종료
+[sched] alloc time quantum :idx8 pid7348
+[ 49s] alm tick
+p_idx 8에게 작업지시
+[child 7348] (new work)burst remain 9
+[child 7348] (running)burst remain 8
+p_idx 8 계속 실행(남은 퀀텀: 14)
+[ 50s] alm tick
+p_idx 8에게 작업지시
+[child 7348] (running)burst remain 7
+p_idx 8 계속 실행(남은 퀀텀: 13)
+[ 51s] alm tick
+p_idx 8에게 작업지시
+[child 7348] (running)burst remain 6
+p_idx 8 계속 실행(남은 퀀텀: 12)
+[ 52s] alm tick
+p_idx 8에게 작업지시
+[child 7348] (running)burst remain 5
+p_idx 8 계속 실행(남은 퀀텀: 11)
+[ 53s] alm tick
+p_idx 8에게 작업지시
+[child 7348] (running)burst remain 4
+p_idx 8 계속 실행(남은 퀀텀: 10)
+[ 54s] alm tick
+p_idx 8에게 작업지시
+[child 7348] (running)burst remain 3
+p_idx 8 계속 실행(남은 퀀텀: 9)
+[ 55s] alm tick
+p_idx 8에게 작업지시
+[child 7348] (running)burst remain 2
+p_idx 8 계속 실행(남은 퀀텀: 8)
+[ 56s] alm tick
+p_idx 8에게 작업지시
+[child 7348] (running)burst remain 1
+p_idx 8 계속 실행(남은 퀀텀: 7)
+[ 57s] alm tick
+p_idx 8에게 작업지시
+[child 7348] (running)burst remain 0
+[child 7348] end
+[CHLD] p_idx 8 : 종료
+[sched] alloc time quantum :idx9 pid7349
+[ 58s] alm tick
+p_idx 9에게 작업지시
+[child 7349] (new work)burst remain 9
+[child 7349] (running)burst remain 8
+p_idx 9 계속 실행(남은 퀀텀: 14)
+[ 59s] alm tick
+p_idx 9에게 작업지시
+[child 7349] (running)burst remain 7
+p_idx 9 계속 실행(남은 퀀텀: 13)
+[ 60s] alm tick
+p_idx 9에게 작업지시
+[child 7349] (running)burst remain 6
+p_idx 9 계속 실행(남은 퀀텀: 12)
+[ 61s] alm tick
+p_idx 9에게 작업지시
+[child 7349] (running)burst remain 5
+p_idx 9 계속 실행(남은 퀀텀: 11)
+[ 62s] alm tick
+p_idx 9에게 작업지시
+[child 7349] (running)burst remain 4
+p_idx 9 계속 실행(남은 퀀텀: 10)
+[ 63s] alm tick
+p_idx 9에게 작업지시
+[child 7349] (running)burst remain 3
+p_idx 9 계속 실행(남은 퀀텀: 9)
+[ 64s] alm tick
+p_idx 9에게 작업지시
+[child 7349] (running)burst remain 2
+p_idx 9 계속 실행(남은 퀀텀: 8)
+[ 65s] alm tick
+p_idx 9에게 작업지시
+[child 7349] (running)burst remain 1
+p_idx 9 계속 실행(남은 퀀텀: 7)
+[ 66s] alm tick
+p_idx 9에게 작업지시
+[child 7349] (running)burst remain 0
+[child 7349] end
+[CHLD] p_idx 9 : 종료
+[sched] alloc time quantum :idx1 pid7341
+[ 67s] alm tick
+p_idx 1에게 작업지시
+[child 7341] (new work)burst remain 2
+[child 7341] (running)burst remain 1
+p_idx 1 계속 실행(남은 퀀텀: 14)
+[ 68s] alm tick
+p_idx 1에게 작업지시
+[child 7341] (running)burst remain 0
+[child 7341] end
+[CHLD] p_idx 1 : 종료
+[sched] alloc time quantum :idx2 pid7342
+[ 69s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (new work)burst remain 7
+[child 7342] (running)burst remain 6
+p_idx 2 계속 실행(남은 퀀텀: 14)
+[ 70s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 5
+p_idx 2 계속 실행(남은 퀀텀: 13)
+[ 71s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 4
+p_idx 2 계속 실행(남은 퀀텀: 12)
+[ 72s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 3
+p_idx 2 계속 실행(남은 퀀텀: 11)
+[ 73s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 2
+p_idx 2 계속 실행(남은 퀀텀: 10)
+[ 74s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 1
+p_idx 2 계속 실행(남은 퀀텀: 9)
+[ 75s] alm tick
+p_idx 2에게 작업지시
+[child 7342] (running)burst remain 0
+[child 7342] end
+[CHLD] p_idx 2 : 종료
+[sched] alloc time quantum :idx4 pid7344
+[ 76s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (new work)burst remain 4
+[child 7344] (running)burst remain 3
+p_idx 4 계속 실행(남은 퀀텀: 14)
+[ 77s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 2
+p_idx 4 계속 실행(남은 퀀텀: 13)
+[ 78s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 1
+p_idx 4 계속 실행(남은 퀀텀: 12)
+[ 79s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 0
+[child 7344] io request
+[i/o] p_idx 4 io request. sleep 2s
+[sched] alloc time quantum :idx5 pid7345
+[ 80s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (new work)burst remain 6
+[child 7345] (running)burst remain 5
+p_idx 5 계속 실행(남은 퀀텀: 14)
+[ 81s] alm tick
+p_idx 4:I/O완료
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 4
+p_idx 5 계속 실행(남은 퀀텀: 13)
+[ 82s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 3
+p_idx 5 계속 실행(남은 퀀텀: 12)
+[ 83s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 2
+p_idx 5 계속 실행(남은 퀀텀: 11)
+[ 84s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 1
+p_idx 5 계속 실행(남은 퀀텀: 10)
+[ 85s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 0
+[child 7345] io request
+[i/o] p_idx 5 io request. sleep 4s
+[sched] alloc time quantum :idx6 pid7346
+[ 86s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (new work)burst remain 5
+[child 7346] (running)burst remain 4
+p_idx 6 계속 실행(남은 퀀텀: 14)
+[ 87s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 3
+p_idx 6 계속 실행(남은 퀀텀: 13)
+[ 88s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 2
+p_idx 6 계속 실행(남은 퀀텀: 12)
+[ 89s] alm tick
+p_idx 5:I/O완료
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 1
+p_idx 6 계속 실행(남은 퀀텀: 11)
+[ 90s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 0
+[child 7346] io request
+[i/o] p_idx 6 io request. sleep 4s
+[sched] alloc time quantum :idx4 pid7344
+[ 91s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (new work)burst remain 6
+[child 7344] (running)burst remain 5
+p_idx 4 계속 실행(남은 퀀텀: 14)
+[ 92s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 4
+p_idx 4 계속 실행(남은 퀀텀: 13)
+[ 93s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 3
+p_idx 4 계속 실행(남은 퀀텀: 12)
+[ 94s] alm tick
+p_idx 6:I/O완료
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 2
+p_idx 4 계속 실행(남은 퀀텀: 11)
+[ 95s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 1
+p_idx 4 계속 실행(남은 퀀텀: 10)
+[ 96s] alm tick
+p_idx 4에게 작업지시
+[child 7344] (running)burst remain 0
+[child 7344] end
+[CHLD] p_idx 4 : 종료
+[sched] alloc time quantum :idx5 pid7345
+[ 97s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (new work)burst remain 1
+[child 7345] (running)burst remain 0
+[child 7345] io request
+[i/o] p_idx 5 io request. sleep 4s
+[sched] alloc time quantum :idx6 pid7346
+[ 98s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (new work)burst remain 10
+[child 7346] (running)burst remain 9
+p_idx 6 계속 실행(남은 퀀텀: 14)
+[ 99s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 8
+p_idx 6 계속 실행(남은 퀀텀: 13)
+[100s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 7
+p_idx 6 계속 실행(남은 퀀텀: 12)
+[101s] alm tick
+p_idx 5:I/O완료
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 6
+p_idx 6 계속 실행(남은 퀀텀: 11)
+[102s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 5
+p_idx 6 계속 실행(남은 퀀텀: 10)
+[103s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 4
+p_idx 6 계속 실행(남은 퀀텀: 9)
+[104s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 3
+p_idx 6 계속 실행(남은 퀀텀: 8)
+[105s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 2
+p_idx 6 계속 실행(남은 퀀텀: 7)
+[106s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 1
+p_idx 6 계속 실행(남은 퀀텀: 6)
+[107s] alm tick
+p_idx 6에게 작업지시
+[child 7346] (running)burst remain 0
+[child 7346] end
+[CHLD] p_idx 6 : 종료
+[sched] alloc time quantum :idx5 pid7345
+[108s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (new work)burst remain 3
+[child 7345] (running)burst remain 2
+p_idx 5 계속 실행(남은 퀀텀: 14)
+[109s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 1
+p_idx 5 계속 실행(남은 퀀텀: 13)
+[110s] alm tick
+p_idx 5에게 작업지시
+[child 7345] (running)burst remain 0
+[child 7345] end
+[CHLD] p_idx 5 : 종료
+[sched] IDLE, 종료된 프로세스 수: 10
+모든 프로세스 종료됨
+
+결과
+p_idx	pid	running time	wait	turnaround
+0	7340	8		0	8
+1	7341	6		60	68
+2	7342	16		55	75
+3	7343	8		21	29
+4	7344	13		77	96
+5	7345	16		81	110
+6	7346	21		80	107
+7	7347	4		44	48
+8	7348	9		48	57
+9	7349	9		57	66
+평균 반환 시간: 66.40s
+평균 대기 시간: 52.30s
+총 실행 시간: 110s
+유휴 시간: 0s
+프로세스 개수10
+타임 퀀텀: 15
+seed:2025
+
