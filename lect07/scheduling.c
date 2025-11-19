@@ -61,10 +61,11 @@ typedef struct PCB{
 
 PCB pcb_table[PROCESS_NUM];
 
-int ready_queue[PROCESS_NUM*10];
+
+#define QUEUE_SIZE (PROCESS_NUM*2)
+int ready_queue[QUEUE_SIZE];
 int rq_head=0;
 int rq_tail=0;
-#define QUEUE_SIZE (PROCESS_NUM*10)
 
 int cur_process_idx=-1;//현재 실행중인 프로세스
 int done_process_cnt=0;//끝난 프로세스 수
