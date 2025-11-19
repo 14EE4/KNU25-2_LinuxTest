@@ -118,7 +118,7 @@ void print_performance(){
 	long total_service_time_sum=0;
 	
 	printf("\n결과\n");
-	printf("pno\trunning time\twait\tturnaround\n");
+	printf("p_idx\trunning time\twait\tturnaround\n");
 	for (int i=0;i<PROCESS_NUM;i++){
 		PCB *pcb=&pcb_table[i];
 		printf("%d\t%d\t\t%d\t%d\n",
@@ -306,7 +306,7 @@ int main(){
 				if (pcb_table[i].state==STATE_SLEEP){
 					pcb_table[i].remain_sleep--;
 					if (pcb_table[i].remain_sleep==0){
-						printf("pno %d:I/O완료\n", i);
+						printf("p_idx %d:I/O완료\n", i);
 						pcb_table[i].state=STATE_READY;
 						enqueue(i);
 						pcb_table[i].start_time=elapsed_time;
@@ -321,18 +321,18 @@ int main(){
 				PCB *pcb=&pcb_table[cur_process_idx];
 				pcb->remain_quantum--;
 				pcb->total_burst_time++;
-				printf("pno %d에게 작업지시\n",cur_process_idx);
+				printf("p_idx %d에게 작업지시\n",cur_process_idx);
 				kill(pcb->pid,SIGUSR1);
 				usleep(5000);//자식 프로세스 처리 대기(sleep은 sigalrm사용함으로 usleep사용);
 					
 				//io나 종료가 아니라면
 				if (pcb->state==STATE_RUNNING && io_request!=pcb->pid && is_terminated==0){
 					if (pcb->remain_quantum==0){
-						printf("pno %d 퀀텀만료\n",cur_process_idx);
+						printf("p_idx %d 퀀텀만료\n",cur_process_idx);
 						scheduler();
 					}else{
 
-						printf("pno %d 계속 실행(남은 퀀텀: %d)\n",cur_process_idx,pcb->remain_quantum);
+						printf("p_idx %d 계속 실행(남은 퀀텀: %d)\n",cur_process_idx,pcb->remain_quantum);
 					}
 				}
 			}
@@ -355,7 +355,7 @@ int main(){
 				if(pcb_table[i].pid==req_pid){
 					//io시간 랜덤으로 1~5
 					int sleep_time=(rand()%5)+1;
-					printf("[i/o] pno %d io request. sleep %ds\n",i,sleep_time);
+					printf("[i/o] p_idx %d io request. sleep %ds\n",i,sleep_time);
 					pcb_table[i].state=STATE_SLEEP;
 
 					pcb_table[i].remain_sleep=sleep_time;
@@ -377,7 +377,7 @@ int main(){
 					if (pcb_table[i].pid==terminated_pid){
 						//종료된 자식 프로세스
 						if (pcb_table[i].state!=STATE_DONE){
-							printf("[CHLD] pno %d : 종료\n",i);
+							printf("[CHLD] p_idx %d : 종료\n",i);
 							pcb_table[i].state=STATE_DONE;
 							pcb_table[i].end_time=elapsed_time;
 							pcb_table[i].remain_quantum=0;
