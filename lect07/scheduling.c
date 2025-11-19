@@ -73,6 +73,10 @@ int elapsed_time=0;//출력용 지난 시간
 int g_quantum_size=QUANTUM;//타임 퀀텀
 int g_seed=0;//출력용
 
+int g_max_burst=10;
+int g_max_io=5;
+int g_io_prob=50;
+
 
 //signal flag
 volatile sig_atomic_t alm_tick=0;
@@ -135,14 +139,17 @@ void print_performance(){
 	}
 	int total_idle_time=elapsed_time-total_service_time_sum;
 	
-	printf("평균 반환 시간: %.2fs\n평균 대기 시간: %.2fs\n총 실행 시간: %ds\n유휴 시간: %ds\n프로세스 개수%d\n타임 퀀텀: %d\nseed:%d\n",
+	printf("평균 반환 시간: %.2fs\n평균 대기 시간: %.2fs\n총 실행 시간: %ds\n유휴 시간: %ds\n프로세스 개수%d\n타임 퀀텀: %d\nseed:%d\n최대 버스트 시간: %d\n최대 I/O시간:%d\nI/O확률: %d%%",
 			total_turnaround_time/PROCESS_NUM,
 			total_waiting_time_sum/PROCESS_NUM,
 			elapsed_time,
 			total_idle_time,
 			PROCESS_NUM,
 			g_quantum_size,
-			g_seed
+			g_seed,
+			g_max_burst,
+			g_max_io,
+			g_io_prob
 
 	      );
 }
@@ -169,7 +176,7 @@ void child_sig_handler(int sig){
 	if (sig==SIGUSR1){
 		//새로 시작했거나 i/o에서 복귀했다면 cpu버스트 랜덤 할당
 		if (child_burst_left==0){
-			child_burst_left=(rand()%10)+1;			
+			child_burst_left=(rand()%g_max_burst)+1;			
 			printf("[child %d] (new work)burst remain %d\n",getpid(),child_burst_left);
 
 		}
@@ -177,7 +184,7 @@ void child_sig_handler(int sig){
 		printf("[child %d] (running)burst remain %d\n",getpid(),child_burst_left);
 		if (child_burst_left==0){
 			//종료하거나 i/o request
-			if (rand()%2==0){
+			if ((rand()%100)<g_io_prob){
 				printf("[child %d] end\n",getpid());
 				//kill(getppid(),SIGCHLD);
 				exit(0);//자식이 종료되면 커널이 SIGCHLD보냄
@@ -239,6 +246,16 @@ int main(){
 	printf("time quantum: ");		
 	scanf("%d", &input_quantum);
 	g_quantum_size=input_quantum;
+
+	printf("max burst: ");
+	scanf("%d", &g_max_burst);
+
+	printf("max i/O time: ");
+	scanf("%d",g_max_io);
+
+	printf("I/O 확률(%%): ");
+	scanf("%d", g_io_prob);
+
 
 	printf("seed: ");
 	scanf("%d", &input_seed);
@@ -357,8 +374,8 @@ int main(){
 
 			for (int i=0;i<PROCESS_NUM;i++){
 				if(pcb_table[i].pid==req_pid){
-					//io시간 랜덤으로 1~5
-					int sleep_time=(rand()%5)+1;
+					//io시간 설정값으로
+					int sleep_time=(rand()%g_max_io)+1;
 					printf("[i/o] p_idx %d io request. sleep %ds\n",i,sleep_time);
 					pcb_table[i].state=STATE_SLEEP;
 
