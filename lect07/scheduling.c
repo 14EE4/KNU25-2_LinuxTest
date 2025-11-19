@@ -71,6 +71,7 @@ int cur_process_idx=-1;//현재 실행중인 프로세스
 int done_process_cnt=0;//끝난 프로세스 수
 int elapsed_time=0;//출력용 지난 시간
 int g_quantum_size=QUANTUM;//타임 퀀텀
+int g_seed=0;//출력용
 
 
 //signal flag
@@ -134,13 +135,14 @@ void print_performance(){
 	}
 	int total_idle_time=elapsed_time-total_service_time_sum;
 	
-	printf("평균 반환 시간: %.2fs\n평균 대기 시간: %.2fs\n총 실행 시간: %ds\n유휴 시간: %ds\n프로세스 개수%d\n타임 퀀텀: %d\n",
+	printf("평균 반환 시간: %.2fs\n평균 대기 시간: %.2fs\n총 실행 시간: %ds\n유휴 시간: %ds\n프로세스 개수%d\n타임 퀀텀: %d\nseed:%d\n",
 			total_turnaround_time/PROCESS_NUM,
 			total_waiting_time_sum/PROCESS_NUM,
 			elapsed_time,
 			total_idle_time,
 			PROCESS_NUM,
-			g_quantum_size
+			g_quantum_size,
+			g_seed
 
 	      );
 }
@@ -242,6 +244,7 @@ int main(){
 	scanf("%d", &input_seed);
 
 	srand(input_seed);
+	g_seed=input_seed;
 
 	//signal handler config
 	struct sigaction sa_io, sa_chld;
