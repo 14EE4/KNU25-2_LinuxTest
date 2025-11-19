@@ -1,0 +1,271 @@
+time quantum: 15
+max burst: 10 
+max i/O time: 5
+I/O 확률(%): 0
+seed: 42
+스케줄링 시작 quantum: 15, seed: 42
+현재 ready queue: 0 1 2 3 4 5 6 7 8 9 
+[sched] alloc time quantum :idx0 pid11434
+[  1s] alm tick
+p_idx 0에게 작업지시
+[child 11434] (new work)burst remain 3
+[child 11434] (running)burst remain 2
+p_idx 0 계속 실행(남은 퀀텀: 14)
+[  2s] alm tick
+p_idx 0에게 작업지시
+[child 11434] (running)burst remain 1
+p_idx 0 계속 실행(남은 퀀텀: 13)
+[  3s] alm tick
+p_idx 0에게 작업지시
+[child 11434] (running)burst remain 0
+[child 11434] end
+[CHLD] p_idx 0 : 종료
+[sched] alloc time quantum :idx1 pid11435
+[  4s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (new work)burst remain 10
+[child 11435] (running)burst remain 9
+p_idx 1 계속 실행(남은 퀀텀: 14)
+[  5s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (running)burst remain 8
+p_idx 1 계속 실행(남은 퀀텀: 13)
+[  6s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (running)burst remain 7
+p_idx 1 계속 실행(남은 퀀텀: 12)
+[  7s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (running)burst remain 6
+p_idx 1 계속 실행(남은 퀀텀: 11)
+[  8s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (running)burst remain 5
+p_idx 1 계속 실행(남은 퀀텀: 10)
+[  9s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (running)burst remain 4
+p_idx 1 계속 실행(남은 퀀텀: 9)
+[ 10s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (running)burst remain 3
+p_idx 1 계속 실행(남은 퀀텀: 8)
+[ 11s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (running)burst remain 2
+p_idx 1 계속 실행(남은 퀀텀: 7)
+[ 12s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (running)burst remain 1
+p_idx 1 계속 실행(남은 퀀텀: 6)
+[ 13s] alm tick
+p_idx 1에게 작업지시
+[child 11435] (running)burst remain 0
+[child 11435] end
+[CHLD] p_idx 1 : 종료
+[sched] alloc time quantum :idx2 pid11436
+[ 14s] alm tick
+p_idx 2에게 작업지시
+[child 11436] (new work)burst remain 1
+[child 11436] (running)burst remain 0
+[child 11436] end
+[CHLD] p_idx 2 : 종료
+[sched] alloc time quantum :idx3 pid11437
+[ 15s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (new work)burst remain 10
+[child 11437] (running)burst remain 9
+p_idx 3 계속 실행(남은 퀀텀: 14)
+[ 16s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (running)burst remain 8
+p_idx 3 계속 실행(남은 퀀텀: 13)
+[ 17s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (running)burst remain 7
+p_idx 3 계속 실행(남은 퀀텀: 12)
+[ 18s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (running)burst remain 6
+p_idx 3 계속 실행(남은 퀀텀: 11)
+[ 19s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (running)burst remain 5
+p_idx 3 계속 실행(남은 퀀텀: 10)
+[ 20s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (running)burst remain 4
+p_idx 3 계속 실행(남은 퀀텀: 9)
+[ 21s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (running)burst remain 3
+p_idx 3 계속 실행(남은 퀀텀: 8)
+[ 22s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (running)burst remain 2
+p_idx 3 계속 실행(남은 퀀텀: 7)
+[ 23s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (running)burst remain 1
+p_idx 3 계속 실행(남은 퀀텀: 6)
+[ 24s] alm tick
+p_idx 3에게 작업지시
+[child 11437] (running)burst remain 0
+[child 11437] end
+[CHLD] p_idx 3 : 종료
+[sched] alloc time quantum :idx4 pid11438
+[ 25s] alm tick
+p_idx 4에게 작업지시
+[child 11438] (new work)burst remain 1
+[child 11438] (running)burst remain 0
+[child 11438] end
+[CHLD] p_idx 4 : 종료
+[sched] alloc time quantum :idx5 pid11439
+[ 26s] alm tick
+p_idx 5에게 작업지시
+[child 11439] (new work)burst remain 8
+[child 11439] (running)burst remain 7
+p_idx 5 계속 실행(남은 퀀텀: 14)
+[ 27s] alm tick
+p_idx 5에게 작업지시
+[child 11439] (running)burst remain 6
+p_idx 5 계속 실행(남은 퀀텀: 13)
+[ 28s] alm tick
+p_idx 5에게 작업지시
+[child 11439] (running)burst remain 5
+p_idx 5 계속 실행(남은 퀀텀: 12)
+[ 29s] alm tick
+p_idx 5에게 작업지시
+[child 11439] (running)burst remain 4
+p_idx 5 계속 실행(남은 퀀텀: 11)
+[ 30s] alm tick
+p_idx 5에게 작업지시
+[child 11439] (running)burst remain 3
+p_idx 5 계속 실행(남은 퀀텀: 10)
+[ 31s] alm tick
+p_idx 5에게 작업지시
+[child 11439] (running)burst remain 2
+p_idx 5 계속 실행(남은 퀀텀: 9)
+[ 32s] alm tick
+p_idx 5에게 작업지시
+[child 11439] (running)burst remain 1
+p_idx 5 계속 실행(남은 퀀텀: 8)
+[ 33s] alm tick
+p_idx 5에게 작업지시
+[child 11439] (running)burst remain 0
+[child 11439] end
+[CHLD] p_idx 5 : 종료
+[sched] alloc time quantum :idx6 pid11440
+[ 34s] alm tick
+p_idx 6에게 작업지시
+[child 11440] (new work)burst remain 3
+[child 11440] (running)burst remain 2
+p_idx 6 계속 실행(남은 퀀텀: 14)
+[ 35s] alm tick
+p_idx 6에게 작업지시
+[child 11440] (running)burst remain 1
+p_idx 6 계속 실행(남은 퀀텀: 13)
+[ 36s] alm tick
+p_idx 6에게 작업지시
+[child 11440] (running)burst remain 0
+[child 11440] end
+[CHLD] p_idx 6 : 종료
+[sched] alloc time quantum :idx7 pid11441
+[ 37s] alm tick
+p_idx 7에게 작업지시
+[child 11441] (new work)burst remain 3
+[child 11441] (running)burst remain 2
+p_idx 7 계속 실행(남은 퀀텀: 14)
+[ 38s] alm tick
+p_idx 7에게 작업지시
+[child 11441] (running)burst remain 1
+p_idx 7 계속 실행(남은 퀀텀: 13)
+[ 39s] alm tick
+p_idx 7에게 작업지시
+[child 11441] (running)burst remain 0
+[child 11441] end
+[CHLD] p_idx 7 : 종료
+[sched] alloc time quantum :idx8 pid11442
+[ 40s] alm tick
+p_idx 8에게 작업지시
+[child 11442] (new work)burst remain 4
+[child 11442] (running)burst remain 3
+p_idx 8 계속 실행(남은 퀀텀: 14)
+[ 41s] alm tick
+p_idx 8에게 작업지시
+[child 11442] (running)burst remain 2
+p_idx 8 계속 실행(남은 퀀텀: 13)
+[ 42s] alm tick
+p_idx 8에게 작업지시
+[child 11442] (running)burst remain 1
+p_idx 8 계속 실행(남은 퀀텀: 12)
+[ 43s] alm tick
+p_idx 8에게 작업지시
+[child 11442] (running)burst remain 0
+[child 11442] end
+[CHLD] p_idx 8 : 종료
+[sched] alloc time quantum :idx9 pid11443
+[ 44s] alm tick
+p_idx 9에게 작업지시
+[child 11443] (new work)burst remain 9
+[child 11443] (running)burst remain 8
+p_idx 9 계속 실행(남은 퀀텀: 14)
+[ 45s] alm tick
+p_idx 9에게 작업지시
+[child 11443] (running)burst remain 7
+p_idx 9 계속 실행(남은 퀀텀: 13)
+[ 46s] alm tick
+p_idx 9에게 작업지시
+[child 11443] (running)burst remain 6
+p_idx 9 계속 실행(남은 퀀텀: 12)
+[ 47s] alm tick
+p_idx 9에게 작업지시
+[child 11443] (running)burst remain 5
+p_idx 9 계속 실행(남은 퀀텀: 11)
+[ 48s] alm tick
+p_idx 9에게 작업지시
+[child 11443] (running)burst remain 4
+p_idx 9 계속 실행(남은 퀀텀: 10)
+[ 49s] alm tick
+p_idx 9에게 작업지시
+[child 11443] (running)burst remain 3
+p_idx 9 계속 실행(남은 퀀텀: 9)
+[ 50s] alm tick
+p_idx 9에게 작업지시
+[child 11443] (running)burst remain 2
+p_idx 9 계속 실행(남은 퀀텀: 8)
+[ 51s] alm tick
+p_idx 9에게 작업지시
+[child 11443] (running)burst remain 1
+p_idx 9 계속 실행(남은 퀀텀: 7)
+[ 52s] alm tick
+p_idx 9에게 작업지시
+[child 11443] (running)burst remain 0
+[child 11443] end
+[CHLD] p_idx 9 : 종료
+[sched] IDLE, 종료된 프로세스 수: 10
+모든 프로세스 종료됨
+
+결과
+p_idx	pid	running time	wait	turnaround
+0	11434	3		0	3
+1	11435	10		3	13
+2	11436	1		13	14
+3	11437	10		14	24
+4	11438	1		24	25
+5	11439	8		25	33
+6	11440	3		33	36
+7	11441	3		36	39
+8	11442	4		39	43
+9	11443	9		43	52
+평균 반환 시간: 28.20s
+평균 대기 시간: 23.00s
+총 실행 시간: 52s
+유휴 시간: 0s
+프로세스 개수10
+타임 퀀텀: 15
+seed:42
+최대 버스트 시간: 10
+최대 I/O시간:5
+I/O확률: 0%
+
