@@ -64,6 +64,7 @@ PCB pcb_table[PROCESS_NUM];
 int ready_queue[PROCESS_NUM*10];
 int rq_head=0;
 int rq_tail=0;
+#define QUEUE_SIZE (PROCESS_NUM*10)
 
 int cur_process_idx=-1;//현재 실행중인 프로세스
 int done_process_cnt=0;//끝난 프로세스 수
@@ -84,13 +85,18 @@ volatile sig_atomic_t is_terminated=0;
  * SIGCHLD: 자식 프로세스가 종료됨
  */
 
-//큐 함수
+//큐 함수(환형 큐)
 void enqueue(int p_idx){
-	ready_queue[rq_tail++]=p_idx;
+	
+	ready_queue[rq_tail]=p_idx;
+	rq_tail=(rq_tail+1)%QUEUE_SIZE;
+
 }
 int dequeue(){
 	if (rq_head==rq_tail) return -1;
-	return ready_queue[rq_head++];
+	int p_idx =  ready_queue[rq_head];
+	rq_head=(rq_head+1)%QUEUE_SIZE;
+	return p_idx;
 }
 int is_queue_empty(){
 	return rq_head==rq_tail;
